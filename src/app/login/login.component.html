@@ -1,0 +1,23 @@
+<div class="container" style="width: 500px; margin: auto; margin-top: 50px;">
+    <mat-card class="login-card" style="background-color:#fdeded;">
+      <mat-card-header style="margin-bottom: 10px;">
+        <mat-card-title>Login</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form>
+          <mat-form-field style="width: 100%;">
+            <input matInput [formControl]="email" placeholder="Your email" type="email" name="email" required>
+            <mat-error>Email is Required</mat-error>
+          </mat-form-field>
+          <mat-form-field style="width: 100%;">
+            <input matInput [formControl]="password" placeholder="Your password" type="password" name="password" required>
+            <mat-error>Password is Required</mat-error>
+          </mat-form-field>
+        </form>
+      </mat-card-content>
+      <mat-card-actions fxLayout="row" >
+        <button mat-raised-button color="primary" (click)="login()" style="margin-right: 10px;" [disabled]="!email.valid || !password.valid">Login</button>
+        <a routerLink="/signup">No Account? Signup!</a>
+      </mat-card-actions>
+    </mat-card>
+  </div>

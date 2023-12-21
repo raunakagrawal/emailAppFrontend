@@ -1,0 +1,36 @@
+<div [hidden]="group" style="width: 500px; margin: auto; margin-top: 100px; text-align: center;">
+  <h1> Not Found Link or Expired</h1>
+</div>
+<div [hidden]="!group">
+  <div 
+    style="width: 500px; margin: auto; margin-top: 50px; text-align: center; background-color: #ffffff; opacity: 0.8; border-radius: 20px;">
+    <h1>Welcome to Your Group - <strong *ngIf="group">{{group.groupName}} </strong></h1>
+  </div>
+  <div class="container" style="width: 500px; margin: auto; margin-top: 50px;">
+    <mat-card class="login-card" style="background-color:#fdeded;">
+      <mat-card-header style="margin-bottom: 10px;">
+        <mat-card-title>Select Your Own Name</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form>
+          <mat-form-field style="width: 100%;">
+            <mat-label>Select Name</mat-label>
+            <mat-select name="name" [formControl]="selectedName" (selectionChange)="check($event)" [disabled]="isDisabled">
+              <mat-option *ngFor="let members of allMembers" [value]="members.id">{{ members.memberName }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </form>
+      </mat-card-content>
+      <mat-card-actions fxLayout="row">
+        <button mat-raised-button color="primary" style="margin: auto" (click)="submit()"
+          [disabled]="isDisabled">Submit</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  <div [hidden]="isShow" id="outerBox"
+    style="width: 500px; margin: auto; margin-top: 10px; text-align: center; padding: 100px; border-radius: 20px; background-size: cover; background-repeat: no-repeat; background-position: center center;">
+    <div id="results">
+      <h3>Your Match is:</h3>{{randomMember.memberName}}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+.my-custom-snackbar {
+    margin: 0 !important;
+    position: absolute;
+    top: 200px;
+  }
+
+#results {
+    border: 3px solid #fefefe;
+    border-radius: 5px;
+    margin: auto;
+    padding: 30px;
+    text-align: center;
+    width: 70%;
+    font-size: 40px;
+    font-weight: bold;
+    text-wrap: nowrap;
+    padding-top: 10px;
+    opacity: 1.0;
+}
+@keyframes rotation {
+  from {
+    transform:rotate(0deg);
+}
+  to {
+    transform:rotate(360deg);
+}
+}

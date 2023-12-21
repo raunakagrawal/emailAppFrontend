@@ -1,0 +1,18 @@
+<div *ngIf="groups" style="display: flex; width: 80%; margin: auto; flex-wrap: wrap; align-items: center; justify-content: center; margin-top: 20px;">
+   <h1> History </h1> 
+</div>
+<div *ngIf="groups" style="display: flex; width: 80%; margin: auto; flex-wrap: wrap; align-items: center; justify-content: center;">
+    <div *ngIf="groups.length == 0" style="margin-top: 100px; text-align: center;">
+      <label style="font-size: 20px;">No Celebration to Show </label><br>
+       <button mat-raised-button routerLink="/dashboard" style="color: red; margin-top: 20px;">Lets Create Celebration</button>
+    </div>
+    <mat-card *ngFor="let group of groups, index as i" class="group-card">
+        <mat-card-header>
+          <mat-card-title style="color: rgb(175, 0, 0);">{{group.groupName}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-actions align="end">
+          <button mat-button (click)="getMembers(group)">View</button>
+          <button mat-button (click)="deleteGroup(group)"><mat-icon>delete_forever</mat-icon></button>
+        </mat-card-actions>
+    </mat-card>
+</div>

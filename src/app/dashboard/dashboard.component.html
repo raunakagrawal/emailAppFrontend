@@ -1,0 +1,24 @@
+<div class="container" style="width: 50%; margin: auto; margin-top: 100px; display: flex; justify-content: center; align-items: center;">
+    <button type="submit" mat-raised-button  style="margin:auto;" (click)="submit()" style="color: #ffffff; background-color: #ff0000;">
+        Organize New Celebration
+    </button>
+</div>
+<div *ngIf="isShow">
+<div class="container" style="width: 50%; margin: auto; margin-top: 50px; min-width: 400px;">
+    <mat-form-field appearance="fill" class="form-outline mb-4" style="width: 60%;">
+        <mat-label>Group Name</mat-label>
+        <input matInput placeholder="Group Name" name="groupname" [formControl]="groupname" required />
+        <mat-error>Group Name is required</mat-error>
+    </mat-form-field>
+    <mat-form-field [floatLabel]="'always'" appearance="fill" class="form-outline mb-4" style="width: 100%; height: 200px;">
+        <mat-label >People's Name(Multiple names can be seperated by comma)</mat-label>
+        <input matInput placeholder="People's Name" name="peoplename" [formControl]="peoplename" required />
+        <mat-error>People's Name is required</mat-error>
+    </mat-form-field>
+</div>
+<div class="container" style="width: 50%; margin: auto; margin-top: 20px; display: flex; justify-content: center; align-items: center;">
+    <button type="submit" mat-raised-button color="primary" style="margin:auto;" (click)="openDialog()" [disabled]="!groupname.valid">
+        Submit
+    </button>
+</div>
+</div>

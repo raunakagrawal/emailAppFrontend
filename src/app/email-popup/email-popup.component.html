@@ -1,0 +1,23 @@
+<div class="container" style="width: 90%; margin: auto; margin-top: 10px;">
+    <h2>Send Email </h2>
+</div>
+<div class="container" style="width: 95%; margin: auto;">
+    <mat-form-field appearance="fill" class="form-outline mb-4" style="width: 95%; margin-left: 2.5%;">
+        <mat-label>To,</mat-label>
+        <input matInput placeholder="To" name="firstName" [formControl]="recipient" required autofocus />
+        <mat-error>Reciptent is required</mat-error>
+        <div class="field-message" *ngIf="checkEmail">
+            Please Check Emails
+        </div>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="form-outline mb-4" style="width: 95%; height: 200px; margin-left: 2.5%;">
+        <mat-label>Message </mat-label>
+        <input matInput placeholder="Email Body" name="firstName" [formControl]="message" autofocus />
+    </mat-form-field>
+    <div class="container" style="width: 100%; margin-left: 2.5%; word-wrap: break-word; width: 95%;">
+        <label>Link: {{link}} </label>
+    </div>
+    <button type="submit" mat-raised-button color="primary" style="width:100px; margin-left: 2.5%; margin-top: 20px;" [class.spinner]="loading" [disabled]="loading" [disabled]="loading" (click)="send()">
+        Send
+    </button>
+</div>
